@@ -74,4 +74,13 @@ public class AvaliacaoTest {
 		
 		assertEquals(avaliacao.Notas.size(), 3);
 	}
+	
+	@Test
+	public void testDeveCalcularAMediaEntreTresValores() {
+		avaliacao.inserirNota(5);
+		avaliacao.inserirNota(5);
+		avaliacao.inserirNota(5);		
+		
+		assertEquals(5, avaliacao.calcularMedia());
+	}
 }
