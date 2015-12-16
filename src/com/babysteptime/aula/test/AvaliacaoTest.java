@@ -9,98 +9,108 @@ import com.babysteptime.aula.Avaliacao;
 
 public class AvaliacaoTest {
 	private Avaliacao avaliacao;
-	
+
 	@Before
 	public void init() {
 		avaliacao = new Avaliacao();
 	}
 
 	@Test
-	public void testDeveInserirNota() {		
-		assertTrue(avaliacao.inserirNota(5));		
+	public void testDeveInserirNota() {
+		assertTrue(avaliacao.inserirNota(5));
 	}
-	
+
 	@Test
-	public void testDeveGarantirPrimeiraNotaNegativa() {		
-		assertFalse(avaliacao.inserirNota(-1));		
+	public void testDeveGarantirPrimeiraNotaNegativa() {
+		assertFalse(avaliacao.inserirNota(-1));
 	}
-	
+
 	@Test
 	public void testDeveGarantirPrimeiraNotaZero() {
-		assertTrue(avaliacao.inserirNota(0));		
+		assertTrue(avaliacao.inserirNota(0));
 	}
-	
+
 	@Test
 	public void testDeveGarantirPrimeiraNotaMaiorQueZero() {
-		assertTrue(avaliacao.inserirNota(1));		
+		assertTrue(avaliacao.inserirNota(1));
 	}
-	
+
 	@Test
 	public void testDeveGarantirPrimeiraNotaMaiorDez() {
-		assertTrue(avaliacao.inserirNota(10));		
+		assertTrue(avaliacao.inserirNota(10));
 	}
-	
+
 	@Test
 	public void testDeveGarantirPrimeiraNotaMaiorQueDez() {
-		assertFalse(avaliacao.inserirNota(11));		
+		assertFalse(avaliacao.inserirNota(11));
 	}
-	
+
 	@Test
 	public void testDeveInserirDuasNotas() {
 		avaliacao.inserirNota(5);
 		avaliacao.inserirNota(6);
-		
-		assertEquals(avaliacao.Notas.get(0), new Integer(5));
-		assertEquals(avaliacao.Notas.get(1), new Integer (6));
+
+		assertEquals(avaliacao.Notas.get(0), new Double(5));
+		assertEquals(avaliacao.Notas.get(1), new Double(6));
 	}
-	
+
 	@Test
 	public void testDeveInserirTresNotas() {
 		avaliacao.inserirNota(5);
 		avaliacao.inserirNota(6);
 		avaliacao.inserirNota(2);
-		
-		assertEquals(avaliacao.Notas.get(0), new Integer(5));
-		assertEquals(avaliacao.Notas.get(1), new Integer (6));
-		assertEquals(avaliacao.Notas.get(2), new Integer (2));
+
+		assertEquals(avaliacao.Notas.get(0), new Double(5));
+		assertEquals(avaliacao.Notas.get(1), new Double(6));
+		assertEquals(avaliacao.Notas.get(2), new Double(2));
 	}
-	
+
 	@Test
 	public void testNaoDeveInserirMaisQueTresNotas() {
 		avaliacao.inserirNota(5);
 		avaliacao.inserirNota(6);
 		avaliacao.inserirNota(2);
 		avaliacao.inserirNota(4);
-		
+
 		assertEquals(avaliacao.Notas.size(), 3);
 	}
-	
+
 	@Test
 	public void testDeveCalcularAMediaEntreTresValores() {
 		avaliacao.inserirNota(5);
 		avaliacao.inserirNota(5);
-		avaliacao.inserirNota(5);		
-		
-		assertEquals(5, avaliacao.calcularMedia());
+		avaliacao.inserirNota(5);
+
+		assertEquals(5.0, avaliacao.calcularMedia(),0.001);
 	}
-	
+
 	@Test
 	public void testDeveObterStatusAprovado() {
 		avaliacao.inserirNota(5);
 		avaliacao.inserirNota(9);
-		avaliacao.inserirNota(8);		
+		avaliacao.inserirNota(8);
 		avaliacao.calcularMedia();
-		
+
 		assertEquals("Aprovado", avaliacao.obterStatus());
 	}
-	
+
 	@Test
 	public void testDeveObterStatusReprovado() {
 		avaliacao.inserirNota(4);
 		avaliacao.inserirNota(5);
-		avaliacao.inserirNota(3);		
+		avaliacao.inserirNota(3);
 		avaliacao.calcularMedia();
-		
+
 		assertEquals("Reprovado", avaliacao.obterStatus());
-	}	
+	}
+
+	@Test
+	public void testDeveObterStatusEmExame() {
+		avaliacao.inserirNota(5);
+		avaliacao.inserirNota(5);
+		avaliacao.inserirNota(6);
+		avaliacao.calcularMedia();
+
+		assertEquals("Exame", avaliacao.obterStatus());
+	}
 }
