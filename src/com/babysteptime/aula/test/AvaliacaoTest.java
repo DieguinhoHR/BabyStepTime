@@ -17,31 +17,40 @@ public class AvaliacaoTest {
 
 	@Test
 	public void testDeveInserirNota() {		
-		assertTrue(avaliacao.inserirPrimeiraNota(5));		
+		assertTrue(avaliacao.inserirNota(5));		
 	}
 	
 	@Test
 	public void testDeveGarantirPrimeiraNotaNegativa() {		
-		assertFalse(avaliacao.inserirPrimeiraNota(-1));		
+		assertFalse(avaliacao.inserirNota(-1));		
 	}
 	
 	@Test
 	public void testDeveGarantirPrimeiraNotaZero() {
-		assertTrue(avaliacao.inserirPrimeiraNota(0));		
+		assertTrue(avaliacao.inserirNota(0));		
 	}
 	
 	@Test
 	public void testDeveGarantirPrimeiraNotaMaiorQueZero() {
-		assertTrue(avaliacao.inserirPrimeiraNota(1));		
+		assertTrue(avaliacao.inserirNota(1));		
 	}
 	
 	@Test
 	public void testDeveGarantirPrimeiraNotaMaiorDez() {
-		assertTrue(avaliacao.inserirPrimeiraNota(10));		
+		assertTrue(avaliacao.inserirNota(10));		
 	}
 	
 	@Test
 	public void testDeveGarantirPrimeiraNotaMaiorQueDez() {
-		assertFalse(avaliacao.inserirPrimeiraNota(11));		
+		assertFalse(avaliacao.inserirNota(11));		
+	}
+	
+	@Test
+	public void testDeveDuasNotas() {
+		avaliacao.inserirNota(5);
+		avaliacao.inserirNota(6);
+		
+		assertEquals(avaliacao.Notas.get(0), new Integer(5));
+		assertEquals(avaliacao.Notas.get(1), new Integer (6));
 	}	
 }
