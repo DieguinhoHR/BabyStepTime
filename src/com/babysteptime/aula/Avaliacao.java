@@ -2,8 +2,10 @@ package com.babysteptime.aula;
 
 import java.util.ArrayList;
 public class Avaliacao {
-	public ArrayList<Integer> Notas = new ArrayList<Integer>(3);
+	public ArrayList<Integer> Notas = new ArrayList<Integer>(tamanhoDoVetor);
 	private static int tamanhoDoVetor = 3;
+	
+	private int Media = 0;
 	
 	public boolean inserirNota(int nota) {
 		if(Notas.size() >= tamanhoDoVetor)
@@ -20,11 +22,22 @@ public class Avaliacao {
 	}
 
 	public int calcularMedia() {	
-		int somaNotas = 0;
+		
+		Media = 0;
 		
 		for (Integer integer : Notas) 
-			somaNotas += integer;
+			Media += integer;
 		
-		return somaNotas / Notas.size();
+		Media = Media / Notas.size(); 
+		
+		return Media;
+	}
+
+	public String obterStatus() {
+		
+		if(Media >= 7)
+			return "Aprovado";
+		
+		return "";
 	}
 }

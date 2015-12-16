@@ -83,4 +83,14 @@ public class AvaliacaoTest {
 		
 		assertEquals(5, avaliacao.calcularMedia());
 	}
+	
+	@Test
+	public void testDeveObterStatusAprovado() {
+		avaliacao.inserirNota(5);
+		avaliacao.inserirNota(9);
+		avaliacao.inserirNota(8);		
+		avaliacao.calcularMedia();
+		
+		assertEquals("Aprovado", avaliacao.obterStatus());
+	}
 }
