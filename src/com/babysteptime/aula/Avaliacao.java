@@ -2,13 +2,9 @@ package com.babysteptime.aula;
 
 import java.util.ArrayList;
 public class Avaliacao {
-	public ArrayList<Double> Notas = new ArrayList<Double>(tamanhoDoVetor);
-	private static int tamanhoDoVetor = 3;
+	public ArrayList<Double> Notas = new ArrayList<Double>();
 	
-	public boolean inserirNota(double nota) {
-		if(Notas.size() >= tamanhoDoVetor)
-			return false;
-		
+	public boolean inserirNota(double nota) {		
 		if(nota < 0)
 			return false;
 		

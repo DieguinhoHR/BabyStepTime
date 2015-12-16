@@ -66,13 +66,13 @@ public class AvaliacaoTest {
 	}
 
 	@Test
-	public void testNaoDeveInserirMaisQueTresNotas() {
+	public void testDeveInserirMaisQueTresNotas() {
 		avaliacao.inserirNota(5);
 		avaliacao.inserirNota(6);
 		avaliacao.inserirNota(2);
 		avaliacao.inserirNota(4);
 
-		assertEquals(avaliacao.Notas.size(), 3);
+		assertEquals(avaliacao.Notas.size(), 4);
 	}
 
 	@Test
