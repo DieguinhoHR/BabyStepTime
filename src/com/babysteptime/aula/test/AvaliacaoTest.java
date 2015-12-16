@@ -158,4 +158,16 @@ public class AvaliacaoTest {
 
 		assertEquals(10.0, avaliacao.calcularPonderada(pesos),0.001);
 	}	
+	
+	@Test
+	public void testeNotasAluno()
+	{
+		Aluno aluno = new Aluno();
+		ArrayList<Double> notas = new ArrayList<Double>();
+		notas.add(new Double(5));
+		notas.add(new Double(5));
+		notas.add(new Double(5));
+		assertTrue(aluno.adicionarNotas(notas));
+	}
+	
 }
