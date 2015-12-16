@@ -2,6 +2,8 @@ package com.babysteptime.aula.test;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -112,5 +114,20 @@ public class AvaliacaoTest {
 		avaliacao.calcularMedia();
 
 		assertEquals("Exame", avaliacao.obterStatus());
+	}
+	
+	@Test
+	public void testeDeveCalcularMediaPonderada()
+	{
+		avaliacao.inserirNota(5);
+		avaliacao.inserirNota(5);
+		avaliacao.inserirNota(5);
+		
+		ArrayList<Integer> pesos = new ArrayList<Integer>();
+		pesos.add(new Integer(1));
+		pesos.add(new Integer(2));
+		pesos.add(new Integer(3));
+
+		assertEquals(10.0, avaliacao.calcularPonderada(pesos),0.001);
 	}
 }
