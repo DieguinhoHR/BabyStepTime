@@ -5,8 +5,6 @@ public class Avaliacao {
 	public ArrayList<Integer> Notas = new ArrayList<Integer>(tamanhoDoVetor);
 	private static int tamanhoDoVetor = 3;
 	
-	private int Media = 0;
-	
 	public boolean inserirNota(int nota) {
 		if(Notas.size() >= tamanhoDoVetor)
 			return false;
@@ -23,19 +21,22 @@ public class Avaliacao {
 
 	public int calcularMedia() {	
 		
-		Media = 0;
+		int somaNota = 0;
 		
 		for (Integer integer : Notas) 
-			Media += integer;
+			somaNota += integer;
 		
-		Media = Media / Notas.size(); 
-		
-		return Media;
+		return somaNota / Notas.size(); 
 	}
 
 	public String obterStatus() {
 		
-		if(Media >= 7)
+		int media = calcularMedia();
+		
+		if(media < 5)
+			return "Reprovado";		
+		
+		if(media >= 7)
 			return "Aprovado";
 		
 		return "";
