@@ -46,11 +46,32 @@ public class AvaliacaoTest {
 	}
 	
 	@Test
-	public void testDeveDuasNotas() {
+	public void testDeveInserirDuasNotas() {
 		avaliacao.inserirNota(5);
 		avaliacao.inserirNota(6);
 		
 		assertEquals(avaliacao.Notas.get(0), new Integer(5));
 		assertEquals(avaliacao.Notas.get(1), new Integer (6));
-	}	
+	}
+	
+	@Test
+	public void testDeveInserirTresNotas() {
+		avaliacao.inserirNota(5);
+		avaliacao.inserirNota(6);
+		avaliacao.inserirNota(2);
+		
+		assertEquals(avaliacao.Notas.get(0), new Integer(5));
+		assertEquals(avaliacao.Notas.get(1), new Integer (6));
+		assertEquals(avaliacao.Notas.get(2), new Integer (2));
+	}
+	
+	@Test
+	public void testNaoDeveInserirMaisQueTresNotas() {
+		avaliacao.inserirNota(5);
+		avaliacao.inserirNota(6);
+		avaliacao.inserirNota(2);
+		avaliacao.inserirNota(4);
+		
+		assertEquals(avaliacao.Notas.size(), 3);
+	}
 }

@@ -5,6 +5,9 @@ public class Avaliacao {
 	public ArrayList<Integer> Notas = new ArrayList<Integer>();
 	
 	public boolean inserirNota(int nota) {
+		if(Notas.size() >= 3)
+			return false;
+		
 		if(nota < 0)
 			return false;
 		
@@ -12,7 +15,6 @@ public class Avaliacao {
 			return false;		
 		
 		Notas.add(nota);
-		
 		return true;
 	}
 }
