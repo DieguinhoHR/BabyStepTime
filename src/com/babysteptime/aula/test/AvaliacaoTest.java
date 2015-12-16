@@ -79,41 +79,51 @@ public class AvaliacaoTest {
 
 	@Test
 	public void testDeveCalcularAMediaEntreTresValores() {
-		avaliacao.inserirNota(5);
-		avaliacao.inserirNota(5);
-		avaliacao.inserirNota(5);
+		Aluno aluno = new Aluno();
+		ArrayList<Double> notas = new ArrayList<Double>();
+		notas.add(new Double(5));
+		notas.add(new Double(5));
+		notas.add(new Double(5));
+		aluno.adicionarNotas(notas);
 
-		assertEquals(5.0, avaliacao.calcularMedia(),0.001);
+		assertEquals(5.0, avaliacao.calcularMedia(aluno.Notas),0.001);
 	}
 
 	@Test
 	public void testDeveObterStatusAprovado() {
-		avaliacao.inserirNota(5);
-		avaliacao.inserirNota(9);
-		avaliacao.inserirNota(8);
-		avaliacao.calcularMedia();
+		Aluno aluno = new Aluno();
+		ArrayList<Double> notas = new ArrayList<Double>();
+		notas.add(new Double(5));
+		notas.add(new Double(9));
+		notas.add(new Double(8));
+		aluno.adicionarNotas(notas);
+		
 
-		assertEquals("Aprovado", avaliacao.obterStatus());
+		assertEquals("Aprovado", avaliacao.obterStatus(aluno.Notas));
 	}
 
 	@Test
 	public void testDeveObterStatusReprovado() {
-		avaliacao.inserirNota(4);
-		avaliacao.inserirNota(5);
-		avaliacao.inserirNota(3);
-		avaliacao.calcularMedia();
+		Aluno aluno = new Aluno();
+		ArrayList<Double> notas = new ArrayList<Double>();
+		notas.add(new Double(4));
+		notas.add(new Double(5));
+		notas.add(new Double(3));
+		aluno.adicionarNotas(notas);		
 
-		assertEquals("Reprovado", avaliacao.obterStatus());
+		assertEquals("Reprovado", avaliacao.obterStatus(aluno.Notas));
 	}
 
 	@Test
 	public void testDeveObterStatusEmExame() {
-		avaliacao.inserirNota(5);
-		avaliacao.inserirNota(5);
-		avaliacao.inserirNota(6);
-		avaliacao.calcularMedia();
+		Aluno aluno = new Aluno();
+		ArrayList<Double> notas = new ArrayList<Double>();
+		notas.add(new Double(5));
+		notas.add(new Double(5));
+		notas.add(new Double(6));
+		aluno.adicionarNotas(notas);			
 
-		assertEquals("Exame", avaliacao.obterStatus());
+		assertEquals("Exame", avaliacao.obterStatus(aluno.Notas));
 	}
 	
 	@Test

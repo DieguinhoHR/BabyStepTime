@@ -16,18 +16,18 @@ public class Avaliacao {
 		return true;
 	}
 
-	public double calcularMedia() {
+	public double calcularMedia(ArrayList<Double> notas) {
 
 		double somaNota = 0;
 
-		for (double nota : Notas)
+		for (double nota : notas)
 			somaNota += nota;
 
-		return somaNota / Notas.size();
+		return somaNota / notas.size();
 	}
 
-	public String obterStatus() {
-		double media = calcularMedia();
+	public String obterStatus(ArrayList<Double> notas) {
+		double media = calcularMedia(notas);
 
 		if (media < 5)
 			return "Reprovado";
