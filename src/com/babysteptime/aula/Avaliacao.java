@@ -40,10 +40,16 @@ public class Avaliacao {
 
 	public double calcularPonderada(ArrayList<Integer> pesos) {
 		double somaNota = 0;
-
-		for (int i = 0; i < Notas.size(); i++) {
-			somaNota += (Notas.get(i) * pesos.get(i));			
-		}
+		
+		for (int i = 0; i < Notas.size(); i++) { 
+			int peso = 1;
+		
+			if (i < pesos.size()) {
+				peso = pesos.get(i);			
+			}
+			
+			somaNota += (Notas.get(i) * peso);
+		}		
 		return somaNota / Notas.size();
 	}
 }

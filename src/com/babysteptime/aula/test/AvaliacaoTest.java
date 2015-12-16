@@ -130,4 +130,32 @@ public class AvaliacaoTest {
 
 		assertEquals(10.0, avaliacao.calcularPonderada(pesos),0.001);
 	}
+	
+	@Test
+	public void testeDeveCalcularMediaPonderadaMenosPesos() {
+		avaliacao.inserirNota(5);
+		avaliacao.inserirNota(5);
+		avaliacao.inserirNota(5);
+		
+		ArrayList<Integer> pesos = new ArrayList<Integer>();		
+		pesos.add(new Integer(2));
+		pesos.add(new Integer(3));
+
+		assertEquals(10.0, avaliacao.calcularPonderada(pesos),0.001);
+	}
+	
+	@Test
+	public void testeDeveCalcularMediaPonderadaMaisPesos() {
+		avaliacao.inserirNota(5);
+		avaliacao.inserirNota(5);
+		avaliacao.inserirNota(5);
+		
+		ArrayList<Integer> pesos = new ArrayList<Integer>();
+		pesos.add(new Integer(1));
+		pesos.add(new Integer(2));
+		pesos.add(new Integer(3));
+		pesos.add(new Integer(4));
+
+		assertEquals(10.0, avaliacao.calcularPonderada(pesos),0.001);
+	}	
 }
