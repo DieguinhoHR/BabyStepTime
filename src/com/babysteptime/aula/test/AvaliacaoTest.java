@@ -19,4 +19,9 @@ public class AvaliacaoTest {
 	public void testDeveInserirNota() {		
 		assertTrue(avaliacao.inserirPrimeiraNota(5));		
 	}
+	
+	@Test
+	public void testDeveGarantirPrimeiraNota() {		
+		assertTrue(avaliacao.inserirPrimeiraNota(7));		
+	}
 }
