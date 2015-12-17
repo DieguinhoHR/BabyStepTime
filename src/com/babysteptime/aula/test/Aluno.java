@@ -6,9 +6,15 @@ public class Aluno {
 
 	public ArrayList<Double> Notas = new ArrayList<Double>();
 	
-	public boolean adicionarNotas(ArrayList<Double> notas) {
-		Notas = notas;
-		return true;
-	}
+	public boolean inserirNota(double nota) {
+		if (nota < 0)
+			return false;
 
+		if (nota > 10)
+			return false;
+
+		Notas.add(nota);
+		return true;
+	}	
+	
 }
